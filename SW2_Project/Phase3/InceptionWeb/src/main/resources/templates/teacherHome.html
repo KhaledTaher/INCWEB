@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>TeacherHome</title>
+</head>
+
+<body>
+<header th:replace="layout :: site-header" />
+ <header>
+        <a href="entry.html" th:href="@{/}"><img
+                src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
+        <a href="entry.html" th:href="@{/}">Logout</a>
+              <a href="showCourses.html" th:href="@{/course/show}">Show Courses</a>
+              <a href="course/createCourse.html" th:href="@{/course/createCourse}">Create Course</a>
+              <a href="game/CreateGame.html" th:href="@{/game/CreateGame}">Create Game</a>
+               <a href="game/MyGames.html" th:href="@{/game/MyGames}">MyCreatedGames</a>
+    </header>
+    
+    <h2> Created Games</h2>
+    <p th:each="g:${games}" th:text="${g.gameName}">
+    </p>
+    
+    <h2> Created Courses</h2>
+    <p th:each="c:${courses}" th:text="${c.courseName}">
+    </p>
+    </body>
+    
+<footer th:replace="layout :: site-footer" />
+
+
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>GameQuestions</title>
+</head>
+
+<body>
+<header>
+        <a href="index.html" th:href="@{/}"><img
+                src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
+        <a href="index.html" th:href="@{/}">Logout</a>
+ </header>  
+<h2>Please Answer Game Questions</h2>
+
+<form method="get"  action = "/game/PlayGame" th:object="${question}">  
+   <label for="label"> Answer The Question:</label>
+   <label th:text="*{label}" ></label> <br/>
+   
+    <label th:text="*{one}" ></label>
+    <input type="radio"  name="radio" value="1"  />   <br/>
+    
+    <label th:text="*{two}" ></label>      
+   <input type="radio"  name="radio" value="2" />  <br/>
+   
+    <label th:text="*{three}" ></label>      
+   <input type="radio"  name="radio" value="3" />  <br/>
+   
+      
+   <input type="submit" value="Answer" />
+   
+</form>
+
+</body>
+
+<footer th:replace="layout :: site-footer" />
+</html>
+

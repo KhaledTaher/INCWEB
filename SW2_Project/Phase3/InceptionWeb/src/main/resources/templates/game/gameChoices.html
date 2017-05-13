@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Game Form</title>
+</head>
+
+<body>
+
+ <header>
+        <a href="index.html" th:href="@{/}"><img
+                src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
+        <a href="index.html" th:href="@{/}">Logout</a>
+ </header>  
+
+
+<h2>Please Click on Game choice :</h2>
+<form>
+<label th:text="'Description : ' +  ${game.description}"> </label> <br/>
+<button type="submit" formaction="/game/PlayGame">Play Game</button>  <br/>
+<button th:if="${user.isTeacher()}" type="submit" formaction="/game/CopyGame">Copy Game</button>  <br/>
+<button type="submit" formaction="/game/CommentGame">Comment On Game</button>  <br/>
+<button th:if="${user.getUsername() == game.getGameOwner() OR contributers.contains(user) }" 
+type="submit" formaction="/game/EditGame">Edit Game</button>  <br/>
+<button th:if="${user.getUsername() == game.getGameOwner()}" type="submit" formaction="/game/AddCont"> 
+Add Contributer to Game </button>  <br/>
+</form>
+
+<h2> Game Comments</h2>
+    <p th:each="c:${comments}" th:text="${c.date} + ' username : '  + ${c.username} + '  comment : ' +  ${c.label}">
+    </p>
+    
+ <h2> Game Contributers</h2>
+    <p th:each="t:${contributers}" th:text="${t.username}">
+    </p>
+</body>
+
+
+
+<footer th:replace="layout :: site-footer" />
+</html>
+

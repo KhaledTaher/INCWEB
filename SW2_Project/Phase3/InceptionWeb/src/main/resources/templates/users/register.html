@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>UserRegister</title>
+</head>
+
+<body>
+<header>
+        <a href="entry.html" th:href="@{/}"><img
+                src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
+</header>
+                
+<h2>Please Enter Your Personal Details</h2>
+
+<form method="post"   th:object="${user}">  
+   <label for="label"> UserName:</label>
+    <input type="text" th:field="*{username}" th:required="required"/>    
+    <br/>
+    
+     <label for="fullname">Enter Fullname:</label>
+    <input type="text" th:field="*{fullName}" th:required="required"/>    
+    <br/>
+    
+      <label>Enter password :</label>    
+     <input type="password" th:field="*{password}" th:required="required"/>
+       <br/>
+       
+      <label>Enter Email :</label> 
+     <input type="email" th:field="*{email}" th:required="required"/>
+       <br/>
+       
+       <label>Enter Gender :</label> 
+     <input type="text" th:field="*{gender}" th:required="required"/>
+       <br/>
+      <label>Are you a Teacher :</label>    
+     <label > YES</label>
+    <input type="radio"  name="radio" value="1" />   
+    
+     <label > NO</label>     
+   <input type="radio"  name="radio" value="0" />  
+    <br/>
+       
+    <input type="submit" value="Register" />
+</form>
+
+
+</body>
+
+<footer th:replace="layout :: site-footer" />
+</html>
+

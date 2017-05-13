@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Inception Website</title>
+</head>
+
+<body>
+<header>
+        <a href="entry.html" th:href="@{/}"><img
+                src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
+                </header>
+    
+<h2>ALL Courses</h2>
+    <a href="#" th:each="c : ${courses}" th:text="${c.courseName}"
+       th:href="@{/course/show/{name}/(name=${c.courseName})}"></a>
+</body>
+<footer th:replace="layout :: site-footer" />
+
+</html>
+
+

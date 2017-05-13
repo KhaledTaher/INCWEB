@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Game Form</title>
+</head>
+
+<body>
+
+ <header>
+        <a href="index.html" th:href="@{/}"><img
+                src="../public/img/site-logo.png" th:src="@{/img/site-logo.png}" /></a>
+        <a href="index.html" th:href="@{/}">Logout</a>
+ </header>  
+
+
+<h2>Please Enter Game Data :</h2>
+<form method="post" th:object="${gameform}">
+
+    <label for="gamename"> Gamename:</label>
+    <input type="text"  th:field="*{gamename}" th:required="required" />
+    <br />
+    
+    <label for="questions">Questions:</label>
+    <input type="number"  th:field="*{questions}" th:required="required"/>
+     <br/>
+     
+     <label for="description"> GameDescription:</label>
+    <input type="text"  th:field="*{description}" th:required="required" />
+    <br />
+    
+    <label for="gamecourse"> gamecourse:</label>
+    <input type="text"  th:field ="*{gamecourse}" th:required="required" />
+   
+    <input type="submit" value="Create Game" />
+</form>
+
+</body>
+
+<footer th:replace="layout :: site-footer" />
+</html>
+
